@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Customer Self-Service Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        df-messenger {
+            --df-messenger-bot-message: #bdfcbf;
+            --df-messenger-button-titlebar-color: #7ec472;
+            --df-messenger-chat-background-color: #fafafa;
+            --df-messenger-font-color: black;
+            --df-messenger-send-icon: #7ec472;
+            --df-messenger-user-message: #7ec472;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav" id="navbar">
+        <a href="#" class="logo">
+            <h1> Insurance Customer Self-Service Portal</h1>
+        </a>
+    </nav>
+    <div class="main">
+        <div class="selection">
+            <a href="#claims-form"><button class="shadow">File Claim</button></a>
+            <a href="#recent-claims"><button class="shadow">Recent Claims</button></a>
+            <a href="#track-claims"><button class="shadow">Track Claims</button></a>
+            <!-- <a href="#"><button class="shadow">Chatbot</button></a> -->
+            <a href="#knowledge-base"><button class="shadow">Search Knowledge Base</button></a>
+        </div>
+
+      
+        <!-- Claim Form content -->
+        <section id="claims-form">
+            <form id="claim-form" action="">
+                <h2>Submit a New Insurance Claim</h2>
+                <div class="form-group">
+                    <label for="policy-number">Policy Number:</label>
+                    <input type="text" id="policy-number" name="policy-number" required>
+                </div>
+                <div class="form-group">
+                    <label for="incident-date">Incident Date:</label>
+                    <input type="date" id="incident-date" name="incident-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="incident-description">Incident Description:</label>
+                    <textarea id="incident-description" name="incident-description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="file-upload">Attach Files:</label>
+                    <input type="file" id="file-upload" name="file-upload" accept=".pdf, .doc, .docx">
+                </div>
+                <button type="submit">Submit Claim</button>
+            </form>
+        </section>
+
+
+        <!-- Main Content Area -->
+        <section id="recent-claims" >
+            <div class="recent-claims-title">
+
+                <h1>Recent Claims</h1>
+            </div>
+            <table id="recent-claims-table">
+                <thead>
+                    <tr>
+                        <th>Claim Number</th>
+                        <th>Status</th>
+                        <th>Date Submitted</th>
+                    </tr>
+                </thead>
+                <tbody id="recent-claims-tbody">
+
+                    <!-- Populate table dynamically with JavaScript -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- track claim -->
+        <section id="track-claims" class="hidden">
+
+            <h2 id="track-claims">Claim Tracking</h2>
+            <table id="track-claim-table">
+
+                <thead>
+                    <tr>
+                        <th>Claim Number</th>
+                        <th>Status</th>
+                        <th>Date Submitted</th>
+                    </tr>
+                </thead>
+                <tbody id="track-claim-tbody">
+
+
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Knowledge base search -->
+        <section id="knowledge-base" class="hidden">
+            <!-- Knowledge Base content -->
+            <div class="container">
+                <input type="text" id="searchInput" placeholder="Search for insurance questions...">
+                <div id="searchResults"></div>
+            </div>
+        </section>
+
+
+        <df-messenger intent="WELCOME" chat-title="InsuranceBot" agent-id="8ebd6af7-7a19-4eaa-8388-315e371bb31f"
+            language-code="en" id="chatbot"></df-messenger>
+    </div>
+    <footer class="footer">
+        <div class="contact"></div>
+    </footer>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
